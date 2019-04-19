@@ -18,3 +18,7 @@ _global_script_class_icons={
 config/name="Animal Hunter"
 run/main_scene="res://Main.tscn"
 config/icon="res://assets/third_party/kenney_animalpackredux/PNG/Round/bear.png"
+
+[display]
+
+window/size/resizable=false

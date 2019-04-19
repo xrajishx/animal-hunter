@@ -43,8 +43,9 @@ anchor_bottom = 1.0
 mouse_filter = 2
 
 [node name="GameScreen" type="Control" parent="Control"]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
 
 [node name="RemainingToKill" type="Label" parent="Control/GameScreen"]
 anchor_right = 1.0
@@ -60,9 +61,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 48.0
-margin_top = 446.0
-margin_right = 142.0
-margin_bottom = 560.0
+margin_top = -114.0
 custom_fonts/font = SubResource( 2 )
 text = "30"
 
