@@ -49,6 +49,10 @@ func randomize_enemy_spawn():
 		"y": (randi() % 5) * (screen_size.y / 5),
 		"direction": randi() % 2
 	}
+	
+func _input(event):
+    if event is InputEventScreenTouch and event.pressed:
+        $Shoot.play()
 
 func spawn_animal():
 	var random_enemy_spawn_values = randomize_enemy_spawn()
@@ -76,3 +80,7 @@ func spawn_animal():
 	canvas_layer.layer = random_enemy_spawn_values.layer
 	
 	$Forest1.add_child(canvas_layer)
+
+
+func _on_Music_finished():
+	$Music.play()

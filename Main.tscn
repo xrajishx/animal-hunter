@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Forest1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/third_party/shoot.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/third_party/carnivalrides.ogg" type="AudioStream" id=5]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
@@ -20,6 +22,13 @@ wait_time = 0.1
 
 [node name="HUD" parent="." instance=ExtResource( 3 )]
 
+[node name="Shoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+
 [connection signal="game_over" from="." to="HUD" method="_on_Main_game_over"]
 [connection signal="game_start" from="." to="HUD" method="_on_Main_game_start"]
 [connection signal="remaining_time_changed" from="." to="HUD" method="_on_Main_remaining_time_changed"]
@@ -27,3 +36,4 @@ wait_time = 0.1
 [connection signal="timeout" from="AnimalSpawnTimer" to="." method="_on_AnimalSpawnTimer_timeout"]
 [connection signal="timeout" from="GameStartTimer" to="." method="_on_GameStartTimer_timeout"]
 [connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]
+[connection signal="finished" from="Music" to="." method="_on_Music_finished"]
