@@ -12,8 +12,11 @@ var remaining_time = 30.0
 export var remaining_to_kill = 20
 
 var bear = preload("res://assets/third_party/kenney_animalpackredux/PNG/Round/bear.png")
+var parrot = preload("res://assets/third_party/kenney_animalpackredux/PNG/Round/parrot.png")
+var rabbit = preload("res://assets/third_party/kenney_animalpackredux/PNG/Round/rabbit.png")
 
 func _ready():
+	randomize()
 	screen_size = get_viewport_rect().size
 	$GameStartTimer.start()
 
@@ -31,6 +34,9 @@ func _on_GameTimer_timeout():
 	emit_signal("remaining_time_changed", remaining_time)
 	if("%.1f" % remaining_time == "0.0"):
 		game_over(0)
+
+func _on_Music_finished():
+	$Music.play()
 
 func animal_hit():
 	remaining_to_kill -= 1
@@ -54,6 +60,21 @@ func _input(event):
     if event is InputEventScreenTouch and event.pressed:
         $Shoot.play()
 
+func random_animal(y):
+	var yPosition = y / screen_size.y * 5
+	var random_factor = (randi() % 2) + 1
+	
+	if(yPosition == 0):
+		return parrot
+	elif(yPosition == 1):
+		return parrot if random_factor == 0 else bear
+	elif(yPosition == 2):
+		return bear
+	elif(yPosition == 3):
+		return rabbit if random_factor == 0 else bear
+	else:
+		return rabbit
+
 func spawn_animal():
 	var random_enemy_spawn_values = randomize_enemy_spawn()
 	var animal = animalScene.instance()
@@ -66,8 +87,8 @@ func spawn_animal():
 	spawnY = random_enemy_spawn_values.y
 	
 	animal.init(random_enemy_spawn_values.direction)
-	
-	animal_clickable.texture_normal = bear
+
+	animal_clickable.texture_normal = random_animal(spawnY)
 	animal.scale.x = animal.scale.x + (0.1 * (random_enemy_spawn_values.layer - 9))
 	animal.scale.y = animal.scale.y + (0.1 * (random_enemy_spawn_values.layer - 9))
 	animal_size = animal_clickable.texture_normal.get_size()
@@ -80,7 +101,3 @@ func spawn_animal():
 	canvas_layer.layer = random_enemy_spawn_values.layer
 	
 	$Forest1.add_child(canvas_layer)
-
-
-func _on_Music_finished():
-	$Music.play()
