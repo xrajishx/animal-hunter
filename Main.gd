@@ -8,7 +8,7 @@ signal game_over
 var animalScene = preload("res://Animal.tscn")
 
 var screen_size
-var remaining_time = 30.0
+var remaining_time
 export var remaining_to_kill = 20
 
 var bear = preload("res://assets/third_party/kenney_animalpackredux/PNG/Round/bear.png")
@@ -18,6 +18,14 @@ var rabbit = preload("res://assets/third_party/kenney_animalpackredux/PNG/Round/
 func _ready():
 	randomize()
 	screen_size = get_viewport_rect().size
+	start_game()
+	
+func _on_HUD_play_again():
+	start_game()
+	
+func start_game():
+	remaining_time = 30.0
+	remaining_to_kill = 20
 	$GameStartTimer.start()
 
 func _on_AnimalSpawnTimer_timeout():
@@ -101,3 +109,4 @@ func spawn_animal():
 	canvas_layer.layer = random_enemy_spawn_values.layer
 	
 	$Forest1.add_child(canvas_layer)
+

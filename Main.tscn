@@ -36,4 +36,5 @@ autoplay = true
 [connection signal="timeout" from="AnimalSpawnTimer" to="." method="_on_AnimalSpawnTimer_timeout"]
 [connection signal="timeout" from="GameStartTimer" to="." method="_on_GameStartTimer_timeout"]
 [connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]
+[connection signal="play_again" from="HUD" to="." method="_on_HUD_play_again"]
 [connection signal="finished" from="Music" to="." method="_on_Music_finished"]

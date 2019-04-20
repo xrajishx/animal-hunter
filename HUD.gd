@@ -1,15 +1,21 @@
 extends CanvasLayer
 
+signal play_again
+
 var time_remaining = 1.0
 var format_string = "%.1f"
 var remaining_to_kill = 0
 
 func _ready():
+	new_game()
+	
+func new_game():
+	$Control/StartScreen.visible = true
 	$Control/GameOver.visible = false
 	$Control/GameOver/WinMessage.visible = false
 	$Control/GameOver/LoseMessage.visible = false
 	$Control/GameScreen.visible = false
-	$Control/GameScreen/RemainingToKill.text = str(get_parent().remaining_to_kill)
+	$Control/GameScreen/RemainingToKill.text = str(get_node("/root/Main").remaining_to_kill) if get_node("/root/Main") else "15"
 
 func _on_Main_remaining_time_changed(remaining_time):
 	var text = (format_string % remaining_time)
@@ -20,6 +26,7 @@ func _on_Main_score_changed(remaining):
 
 func _on_Main_game_over(result):
 	$Control/GameOver.visible = true
+	$Control/GameScreen.visible = false
 	if(result == 1):
 		$Control/GameOver/WinMessage.visible = true
 	elif(result == 0):
@@ -33,3 +40,7 @@ func _on_Main_game_start(remaining_to_kill, remaining_time):
 func _on_Main_remaining_to_kill_changed(remaining):
 	remaining_to_kill = remaining
 	$Control/GameScreen/RemainingToKill.text = str(remaining_to_kill)
+
+func _on_PlayAgain_pressed():
+	emit_signal("play_again")
+	new_game()
