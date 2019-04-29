@@ -11,7 +11,8 @@ var animal_size
 
 func _ready():
 	screen_size = get_viewport_rect().size
-	connect("animal_hit", get_node("/root/Main"), "animal_hit")
+	# warning-ignore:return_value_discarded
+	connect("animal_hit", get_node("/root/Main"), "on_Animal_hit")
 
 func init(direction):
 	animal_direction = direction
@@ -35,8 +36,10 @@ func _process(delta):
 	
 
 func _on_TextureButton_pressed():
+	if dead:
+		return
 	emit_signal("animal_hit")
 	dead = true
 
-func _on_VisibilityNotifier2D_viewport_exited(viewport):
+func _on_VisibilityNotifier2D_viewport_exited(_discard):
 	queue_free()

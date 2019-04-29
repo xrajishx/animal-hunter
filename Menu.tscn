@@ -1,0 +1,364 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Menu.gd" type="Script" id=1]
+[ext_resource path="res://assets/third_party/free-cartoon-forest-game-backgrounds/PNG/Cartoon_Forest_BG_04/Cartoon_Forest_BG_04.png" type="Texture" id=2]
+[ext_resource path="res://assets/third_party/fonts/kenvector_future.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/third_party/free-cartoon-forest-game-backgrounds/PNG/Cartoon_Forest_BG_01/Cartoon_Forest_BG_01_300x168.png" type="Texture" id=4]
+[ext_resource path="res://assets/third_party/free-cartoon-forest-game-backgrounds/PNG/Cartoon_Forest_BG_02/Cartoon_Forest_BG_02_300x168.png" type="Texture" id=5]
+[ext_resource path="res://assets/third_party/free-cartoon-forest-game-backgrounds/PNG/Cartoon_Forest_BG_03/Cartoon_Forest_BG_03_300x168.png" type="Texture" id=6]
+[ext_resource path="res://assets/third_party/free-cartoon-forest-game-backgrounds/PNG/Cartoon_Forest_BG_04/Cartoon_Forest_BG_04_300x168.png" type="Texture" id=7]
+[ext_resource path="res://assets/third_party/carnivalrides.ogg" type="AudioStream" id=8]
+[ext_resource path="res://assets/third_party/free-cartoon-forest-game-backgrounds/PNG/Cartoon_Forest_BG_01/Cartoon_Forest_BG_01.png" type="Texture" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 84
+outline_size = 5
+outline_color = Color( 0.360784, 0.623529, 0.239216, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+outline_size = 5
+outline_color = Color( 0.360784, 0.623529, 0.239216, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 35
+outline_size = 5
+outline_color = Color( 0.360784, 0.623529, 0.239216, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 24
+outline_size = 1
+outline_color = Color( 0.12549, 0.258824, 0.980392, 1 )
+font_data = ExtResource( 3 )
+
+[node name="Menu" type="CanvasLayer"]
+layer = 128
+script = ExtResource( 1 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+modulate = Color( 1, 1, 1, 0.54902 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="MenuContainer" type="VBoxContainer" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TitleContainer" type="MarginContainer" parent="Control/MenuContainer"]
+margin_right = 1024.0
+margin_bottom = 115.0
+size_flags_horizontal = 3
+custom_constants/margin_top = 10
+custom_constants/margin_bottom = 10
+
+[node name="Title" type="Label" parent="Control/MenuContainer/TitleContainer"]
+margin_top = 10.0
+margin_right = 1024.0
+margin_bottom = 105.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 1 )
+text = "Animal Hunter"
+align = 1
+
+[node name="LevelRow1" type="Control" parent="Control/MenuContainer"]
+editor/display_folded = true
+margin_top = 119.0
+margin_right = 1024.0
+margin_bottom = 307.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MenuContainer/LevelRow1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Level1" type="Control" parent="Control/MenuContainer/LevelRow1/HBoxContainer"]
+margin_right = 510.0
+margin_bottom = 188.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MenuContainer/LevelRow1/HBoxContainer/Level1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/MenuContainer/LevelRow1/HBoxContainer/Level1/VBoxContainer"]
+margin_right = 510.0
+margin_bottom = 188.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureButton" type="TextureButton" parent="Control/MenuContainer/LevelRow1/HBoxContainer/Level1/VBoxContainer/CenterContainer"]
+margin_left = 105.0
+margin_top = 10.0
+margin_right = 405.0
+margin_bottom = 178.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="Control/MenuContainer/LevelRow1/HBoxContainer/Level1/VBoxContainer/CenterContainer/TextureButton"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -46.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+text = "Level 1"
+align = 1
+
+[node name="Level2" type="Control" parent="Control/MenuContainer/LevelRow1/HBoxContainer"]
+margin_left = 514.0
+margin_right = 1024.0
+margin_bottom = 188.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MenuContainer/LevelRow1/HBoxContainer/Level2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/MenuContainer/LevelRow1/HBoxContainer/Level2/VBoxContainer"]
+margin_right = 510.0
+margin_bottom = 188.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureButton" type="TextureButton" parent="Control/MenuContainer/LevelRow1/HBoxContainer/Level2/VBoxContainer/CenterContainer"]
+margin_left = 105.0
+margin_top = 10.0
+margin_right = 405.0
+margin_bottom = 178.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="Control/MenuContainer/LevelRow1/HBoxContainer/Level2/VBoxContainer/CenterContainer/TextureButton"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -46.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+text = "Level 2"
+align = 1
+
+[node name="LevelRow2" type="Control" parent="Control/MenuContainer"]
+editor/display_folded = true
+margin_top = 311.0
+margin_right = 1024.0
+margin_bottom = 499.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MenuContainer/LevelRow2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Level3" type="Control" parent="Control/MenuContainer/LevelRow2/HBoxContainer"]
+margin_right = 510.0
+margin_bottom = 188.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MenuContainer/LevelRow2/HBoxContainer/Level3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/MenuContainer/LevelRow2/HBoxContainer/Level3/VBoxContainer"]
+margin_right = 510.0
+margin_bottom = 188.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureButton" type="TextureButton" parent="Control/MenuContainer/LevelRow2/HBoxContainer/Level3/VBoxContainer/CenterContainer"]
+margin_left = 105.0
+margin_top = 10.0
+margin_right = 405.0
+margin_bottom = 178.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="Control/MenuContainer/LevelRow2/HBoxContainer/Level3/VBoxContainer/CenterContainer/TextureButton"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -46.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+text = "Level 3"
+align = 1
+
+[node name="Level4" type="Control" parent="Control/MenuContainer/LevelRow2/HBoxContainer"]
+margin_left = 514.0
+margin_right = 1024.0
+margin_bottom = 188.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MenuContainer/LevelRow2/HBoxContainer/Level4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/MenuContainer/LevelRow2/HBoxContainer/Level4/VBoxContainer"]
+margin_right = 510.0
+margin_bottom = 188.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureButton" type="TextureButton" parent="Control/MenuContainer/LevelRow2/HBoxContainer/Level4/VBoxContainer/CenterContainer"]
+margin_left = 105.0
+margin_top = 10.0
+margin_right = 405.0
+margin_bottom = 178.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="Control/MenuContainer/LevelRow2/HBoxContainer/Level4/VBoxContainer/CenterContainer/TextureButton"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -46.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+text = "Level 4"
+align = 1
+
+[node name="CreditContainer" type="MarginContainer" parent="Control/MenuContainer"]
+margin_top = 503.0
+margin_right = 1024.0
+margin_bottom = 599.0
+size_flags_horizontal = 3
+custom_constants/margin_top = 30
+custom_constants/margin_bottom = 20
+
+[node name="CreditsButton" type="Button" parent="Control/MenuContainer/CreditContainer"]
+margin_top = 30.0
+margin_right = 1024.0
+margin_bottom = 76.0
+custom_fonts/font = SubResource( 5 )
+text = "Credits"
+flat = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+autoplay = true
+
+[node name="Popup" type="Popup" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+popup_exclusive = true
+
+[node name="TextureRect" type="TextureRect" parent="Popup"]
+modulate = Color( 1, 1, 1, 0.54902 )
+self_modulate = Color( 1, 1, 1, 0.392157 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 9 )
+expand = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HeaderContainer" type="MarginContainer" parent="Popup/VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 115.0
+size_flags_horizontal = 3
+custom_constants/margin_top = 10
+custom_constants/margin_bottom = 10
+
+[node name="Header" type="Label" parent="Popup/VBoxContainer/HeaderContainer"]
+margin_top = 10.0
+margin_right = 1024.0
+margin_bottom = 105.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 1 )
+text = "Credits"
+align = 1
+
+[node name="CreditContainer" type="MarginContainer" parent="Popup/VBoxContainer"]
+margin_top = 119.0
+margin_right = 1024.0
+margin_bottom = 500.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 50
+custom_constants/margin_top = 30
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Popup/VBoxContainer/CreditContainer"]
+margin_left = 50.0
+margin_top = 30.0
+margin_right = 974.0
+margin_bottom = 361.0
+custom_fonts/normal_font = SubResource( 4 )
+bbcode_enabled = true
+bbcode_text = "This game uses the following third party assets:
+[ul]
+* [url=https://www.kenney.nl/assets/animal-pack-redux]Animal Pack Redux[/url] by [url=https://www.kenney.nl/]kenney.nl[/url]
+* [url=https://free-game-assets.itch.io/free-cartoon-forest-2d-backgrounds]Free cartoon forest game backgrounds[/url] from [url=https://craftpix.net/]craftpix.net[/url]
+* Fonts from [url=https://opengameart.org/content/tappy-plane]Tappy plane[/url] by [url=https://www.kenney.nl/]kenney.nl[/url]
+* Crosshair sprite from [url=https://kenney.nl/assets/crosshair-pack]Crosshair Pack[/url] by [url=https://www.kenney.nl/]kenney.nl[/url]
+* Gun-shot sound from [url=https://opengameart.org/content/the-free-firearm-sound-library]The Free Firearm Sound Library[/url] by [url=https://opengameart.org/content/the-free-firearm-sound-library]Ben Jaszczak, et al.[/url]
+* Background music from [url=https://opengameart.org/content/carnival-rides]Carnival Rides[/url] by [url=https://opengameart.org/users/%C3%A9crivain]Écrivain[/url]
+[/ul]"
+text = "This game uses the following third party assets:
+
+* Animal Pack Redux by kenney.nl
+* Free cartoon forest game backgrounds from craftpix.net
+* Fonts from Tappy plane by kenney.nl
+* Crosshair sprite from Crosshair Pack by kenney.nl
+* Gun-shot sound from The Free Firearm Sound Library by Ben Jaszczak, et al.
+* Background music from Carnival Rides by Écrivain
+"
+
+[node name="GoBackContainer" type="MarginContainer" parent="Popup/VBoxContainer"]
+margin_top = 504.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+custom_constants/margin_top = 30
+custom_constants/margin_bottom = 20
+
+[node name="GoBackButton" type="Button" parent="Popup/VBoxContainer/GoBackContainer"]
+margin_top = 30.0
+margin_right = 1024.0
+margin_bottom = 76.0
+custom_fonts/font = SubResource( 5 )
+text = "Go back"
+flat = true
+[connection signal="pressed" from="Control/MenuContainer/LevelRow1/HBoxContainer/Level1/VBoxContainer/CenterContainer/TextureButton" to="." method="_on_TextureButton_pressed" binds= [ 1 ]]
+[connection signal="pressed" from="Control/MenuContainer/LevelRow1/HBoxContainer/Level2/VBoxContainer/CenterContainer/TextureButton" to="." method="_on_TextureButton_pressed" binds= [ 2 ]]
+[connection signal="pressed" from="Control/MenuContainer/LevelRow2/HBoxContainer/Level3/VBoxContainer/CenterContainer/TextureButton" to="." method="_on_TextureButton_pressed" binds= [ 3 ]]
+[connection signal="pressed" from="Control/MenuContainer/LevelRow2/HBoxContainer/Level4/VBoxContainer/CenterContainer/TextureButton" to="." method="_on_TextureButton_pressed" binds= [ 4 ]]
+[connection signal="pressed" from="Control/MenuContainer/CreditContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
+[connection signal="finished" from="Music" to="." method="_on_Music_finished"]
+[connection signal="meta_clicked" from="Popup/VBoxContainer/CreditContainer/RichTextLabel" to="." method="_on_RichTextLabel_meta_clicked"]
+[connection signal="pressed" from="Popup/VBoxContainer/GoBackContainer/GoBackButton" to="." method="_on_GoBackButton_pressed"]

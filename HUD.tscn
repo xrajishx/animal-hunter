@@ -27,11 +27,11 @@ outline_size = 3
 outline_color = Color( 0.972549, 0.411765, 0.0431373, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=5]
 size = 64
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=6]
 size = 80
 outline_size = 3
 outline_color = Color( 0.0431373, 0.494118, 0.972549, 1 )
@@ -101,7 +101,7 @@ anchor_bottom = 1.0
 margin_left = -296.0
 margin_top = -78.0
 margin_right = 296.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 5 )
 text = "Play again"
 flat = true
 
@@ -115,8 +115,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 margin_top = -45.0
 margin_bottom = 45.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "GET READY!"
 align = 1
-
 [connection signal="pressed" from="Control/GameOver/PlayAgain" to="." method="_on_PlayAgain_pressed"]

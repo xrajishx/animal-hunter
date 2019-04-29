@@ -11,6 +11,5 @@ margin_right = 144.0
 margin_bottom = 14.0
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-
 [connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
 [connection signal="viewport_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_viewport_exited"]

@@ -5,11 +5,12 @@ signal remaining_time_changed
 signal game_start
 signal game_over
 
-var animalScene = preload("res://Animal.tscn")
+var animal_scene = preload("res://Animal.tscn")
 
 var screen_size
-var remaining_time
-export var remaining_to_kill = 20
+var level_info = global.levels[global.current_level - 1]
+var remaining_time = level_info.time_to_kill
+var remaining_to_kill = level_info.animals_to_kill
 
 var bear = preload("res://assets/third_party/kenney_animalpackredux/PNG/Round/bear.png")
 var parrot = preload("res://assets/third_party/kenney_animalpackredux/PNG/Round/parrot.png")
@@ -18,23 +19,18 @@ var rabbit = preload("res://assets/third_party/kenney_animalpackredux/PNG/Round/
 func _ready():
 	randomize()
 	screen_size = get_viewport_rect().size
-	start_game()
+	$GameStartTimer.start()
+	$AnimalSpawnTimer.start()
 	
 func _on_HUD_play_again():
-	start_game()
-	
-func start_game():
-	remaining_time = 30.0
-	remaining_to_kill = 20
-	$GameStartTimer.start()
+	global.goto_scene("res://Menu.tscn")
 
 func _on_AnimalSpawnTimer_timeout():
 	spawn_animal()
 	
 func _on_GameStartTimer_timeout():
-	$AnimalSpawnTimer.start()
 	$GameTimer.start()
-	emit_signal("game_start", remaining_to_kill, remaining_time)
+	emit_signal("game_start")
 
 func _on_GameTimer_timeout():
 	remaining_time -= 0.1
@@ -46,7 +42,7 @@ func _on_GameTimer_timeout():
 func _on_Music_finished():
 	$Music.play()
 
-func animal_hit():
+func on_Animal_hit():
 	remaining_to_kill -= 1
 	emit_signal("remaining_to_kill_changed", remaining_to_kill)
 	if(remaining_to_kill == 0):
@@ -85,7 +81,7 @@ func random_animal(y):
 
 func spawn_animal():
 	var random_enemy_spawn_values = randomize_enemy_spawn()
-	var animal = animalScene.instance()
+	var animal = animal_scene.instance()
 	var animal_clickable = animal.get_child(0)
 	var animal_size
 	var canvas_layer = CanvasLayer.new()
@@ -108,5 +104,5 @@ func spawn_animal():
 	canvas_layer.add_child(animal)
 	canvas_layer.layer = random_enemy_spawn_values.layer
 	
-	$Forest1.add_child(canvas_layer)
+	$Background.add_child(canvas_layer)
 

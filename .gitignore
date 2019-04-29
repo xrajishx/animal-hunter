@@ -1,3 +1,11 @@
-.import
+# Godot-specific ignores
+.import/
+export.cfg
+# export_presets.cfg
+
+# Mono-specific ignores
+.mono/
+
+# Additional ignores
 exports
-assets/third_party
+Thumbs.db

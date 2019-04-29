@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/carnivalrides.ogg-dc08f0a1535a0de13244f8ac42608853.oggstr"
+
+[deps]
+
+source_file="res://assets/third_party/carnivalrides.ogg"
+dest_files=[ "res://.import/carnivalrides.ogg-dc08f0a1535a0de13244f8ac42608853.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
